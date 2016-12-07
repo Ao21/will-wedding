@@ -13,11 +13,11 @@
     "forin": true,
     "indent": [
       true,
-      "spaces"
+      "tabs"
     ],
     "label-position": true,
     "max-line-length": [
-      true,
+      false,
       140
     ],
     "member-access": false,

@@ -10,9 +10,9 @@ import { HeaderItemTopLeft } from './../../shapes/border-top--left-shape';
 export class HeaderLeftComponent implements OnInit {
   headerLeftItem: HeaderItemLeft;
   headerItemTopLeft: HeaderItemTopLeft
-  
+
   constructor(private el: ElementRef) {
-    
+
   }
 
   ngOnInit() {

@@ -1,7 +1,13 @@
 :host,
 c-header-right {
-    .shape_container {
-        position: absolute;
-        right: 0;
-    }
+  margin-right: 25px;
+  .shape_container {
+    position: absolute;
+    right: 0;
+  }
+  .sub_shape_container {
+    position: absolute;
+    right: 0;
+    transform: rotate(90deg);
+  }
 }

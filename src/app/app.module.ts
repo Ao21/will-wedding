@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { MojsInit } from './shapes/mo-js.init';
 import { HeaderLeftComponent } from './components/header-left/header-left.component';
 import { HeaderRightComponent } from './components/header-right/header-right.component';
+import { ChandelierComponent } from './components/chandelier/chandelier.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderLeftComponent,
-    HeaderRightComponent
+    HeaderRightComponent,
+    ChandelierComponent
   ],
   imports: [
     BrowserModule,
