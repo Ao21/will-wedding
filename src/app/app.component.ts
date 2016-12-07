@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
-import { Shape } from 'mo-js';
+import { MojsInit } from './shapes/mo-js.init';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'app works!';
-  constructor() {
-    console.log(Shape);
+  constructor(
+    mojo: MojsInit
+  ) {
+    mojo.init();
   }
 }

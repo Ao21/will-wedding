@@ -5,16 +5,24 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 
+import { MojsInit } from './shapes/mo-js.init';
+import { HeaderLeftComponent } from './components/header-left/header-left.component';
+import { HeaderRightComponent } from './components/header-right/header-right.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderLeftComponent,
+    HeaderRightComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    MojsInit
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

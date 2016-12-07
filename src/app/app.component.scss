@@ -1,0 +1,19 @@
+.top__headers {    
+    float: left;
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+
+c-header-left,
+c-header-right {
+    flex: 1 1 50%;
+    float: left;
+    position: relative;
+    width: 50%;
+
+}
+
+c-header-right {
+    
+}
