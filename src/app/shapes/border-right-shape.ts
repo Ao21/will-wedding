@@ -1,5 +1,7 @@
 import { Shape, Tween, Timeline, addShape, CustomShape } from 'mo-js';
 import { StrokeDashArray } from './../core/animations/stroke-dasharray';
+import { BORDER_TIME_DELAY } from './../core/consts/timings';
+import { TOP_BORDER_RIGHT_LEFT_1, TOP_BORDER_RIGHT_LEFT_2, TOP_BORDER_RIGHT_LEFT_3 } from './../core/utils/measure';
 
 export class HeaderItemRight {
 
@@ -14,7 +16,7 @@ export class HeaderItemRight {
         this.initShapes();
         this.el = el;
         
-        this.timeline = new Timeline();
+        this.timeline = new Timeline({delay: BORDER_TIME_DELAY});
         this.shapeArr.forEach((e, i) => {
             this.createShape(e.name, e.stroke, e.path, i);
         })
@@ -24,6 +26,7 @@ export class HeaderItemRight {
 
     createShape(name, stroke, path, index) {
         let strokeDashArray = new StrokeDashArray(path);
+        console.log(window.innerHeight);
         let startPosition = strokeDashArray.getPosition('0%', '0%', 1);
 		let endPosition = strokeDashArray.getPosition('0%', '100%', 1);
         let s = new Shape({
@@ -42,8 +45,8 @@ export class HeaderItemRight {
             left: -112,
             x: 0,
             duration: 1500,
-            width: 400,
-            height: 1200,
+            width: 800,
+            height: window.innerHeight* 2,
         });
         this.timeline.add(s);
     }
@@ -73,13 +76,13 @@ export class HeaderItemRight {
         addShape('BorderRightHeader7', BorderRightHeader7);
 
         this.shapeArr.push(
-            { name: 'BorderRightHeader1', stroke: 2, path: 'M311.9,23 395,94.4 395,761' },
-            { name: 'BorderRightHeader2', stroke: 3, path: 'M403.5,760 403.5,87 310,8.5' },
-            { name: 'BorderRightHeader3', stroke: 2, path: 'M213,23h134l78.9,65.2c-1.1-0.4-2.3-0.6-3.5-0.6c-5.6,0-10.2,4.2-10.7,9.8l0.3-55.1'},
-            { name: 'BorderRightHeader4', stroke: 2, path: 'M422,775V104' },
-            { name: 'BorderRightHeader5', stroke: 2, path: 'M432,772V106l-0.4,0.4c-7.8,7.9-12,8-19.3-0.8l-0.4-0.4V771'},
-            { name: 'BorderRightHeader6', stroke: 5, path: 'M191.3,10.2 373.6,9.9 441.5,67.1 441.5,760'},
-            { name: 'BorderRightHeader7', stroke: 2, path: 'M171,1 339,1 451,95.1 451,761'},
+            { name: 'BorderRightHeader1', stroke: 2, path: `M311.9,23 395,94.4 395,${window.innerHeight}` },
+            { name: 'BorderRightHeader2', stroke: 3, path: `M403.5,${window.innerHeight} 403.5,87 310,8.5` },
+            { name: 'BorderRightHeader3', stroke: 2, path: 'M70,23h277l78.9,65.2c-1.1-0.4-2.3-0.6-3.5-0.6c-5.6,0-10.2,4.2-10.7,9.8l0.3-55.1'},
+            { name: 'BorderRightHeader4', stroke: 2, path: `M422,${window.innerHeight}V104` },
+            { name: 'BorderRightHeader5', stroke: 2, path: `M432,${window.innerHeight}V106l-0.4,0.4c-7.8,7.9-12,8-19.3-0.8l-0.4-0.4V${window.innerHeight}`},
+            { name: 'BorderRightHeader6', stroke: 5, path: `M${TOP_BORDER_RIGHT_LEFT_2},10.2 373.6,9.9 441.5,67.1 441.5,${window.innerHeight}`},
+            { name: 'BorderRightHeader7', stroke: 2, path: `M${TOP_BORDER_RIGHT_LEFT_1},1 339,1 451,95.1 451,${window.innerHeight}`},
         )
     }
 
@@ -92,44 +95,44 @@ export class HeaderItemRight {
 
 class BorderRightHeader1 extends CustomShape {
     getShape() {
-        return '<path  transform="translate(-300)" id="line1" class="st0" d="M311.9,23 395,94.4 395,761"/>'
+        return `<path  transform="translate(-300)" id="line1" class="st0" d="M311.9,23 395,94.4 395,${window.innerHeight}"/>`
     }
 }
 
 class BorderRightHeader2 extends CustomShape {
     getShape() {
-        return '<path  transform="translate(-300)" id="line2" class="st2" d="M403.5,760 403.5,87 310,8.5"/>'
+        return `<path  transform="translate(-300)" id="line2" class="st2" d="M403.5,${window.innerHeight} 403.5,87 310,8.5"/>`
     }
 }
 
 class BorderRightHeader3 extends CustomShape {
     getShape() {
-        return '<path  transform="translate(-300)" id="line3" class="st0" d="M213,23h134l78.9,65.2c-1.1-0.4-2.3-0.6-3.5-0.6c-5.6,0-10.2,4.2-10.7,9.8l0.3-55.1"/>'
+        return `<path  transform="translate(-300)" id="line3" class="st0" d="M70,23h277l78.9,65.2c-1.1-0.4-2.3-0.6-3.5-0.6c-5.6,0-10.2,4.2-10.7,9.8l0.3-55.1"/>`
     }
 }
 
 
 class BorderRightHeader4 extends CustomShape {
     getShape() {
-        return '<path  transform="translate(-300)" id="line4" class="st0" d="M422,775V104"/>'
+        return `<path  transform="translate(-300)" id="line4" class="st0" d="M422,${window.innerHeight}V104"/>`
     }
 }
 
 class BorderRightHeader5 extends CustomShape {
     getShape() {
-        return '<path  transform="translate(-300)" id="line5" class="st0" d="M432,772V106l-0.4,0.4c-7.8,7.9-12,8-19.3-0.8l-0.4-0.4V771"/>'
+        return `<path  transform="translate(-300)" id="line5" class="st0" d="M432,${window.innerHeight}V106l-0.4,0.4c-7.8,7.9-12,8-19.3-0.8l-0.4-0.4V${window.innerHeight}"/>`
     }
 }
 
 class BorderRightHeader6 extends CustomShape {
     getShape() {
-        return '<path  transform="translate(-300)" id="line6" class="st1" d="M191.3,10.2 373.6,9.9 441.5,67.1 441.5,760"/>'
+        return `<path  transform="translate(-300)" id="line6" class="st1" d="M${TOP_BORDER_RIGHT_LEFT_2},10.2 373.6,9.9 441.5,67.1 441.5,${window.innerHeight}"/>`
     }
 }
 
 class BorderRightHeader7 extends CustomShape {
     getShape() {
-        return '<path  transform="translate(-300)" id="line7" class="st0" d="M171,1 339,1 451,95.1 451,761"/>'
+        return `<path  transform="translate(-300)" id="line7" class="st0" d="M1,1 339,1 451,95.1 451,${window.innerHeight}"/>`
     }
 }
 

@@ -1,0 +1,1 @@
+export const BORDER_TIME_DELAY = 8000;

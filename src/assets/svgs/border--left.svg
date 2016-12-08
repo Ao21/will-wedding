@@ -7,9 +7,9 @@
 	.st1{fill:none;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
 	.st2{fill:none;stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;}
 </style>
-<polyline id="line7" class="st0" points="281,1 113,1 1,95.1 1,761 "/>
-<polyline id="line6" class="st1" points="260.7,10.2 78.4,9.9 10.5,67.1 10.5,760 "/>
-<path id="line5" class="st0" d="M239,23H105L26.1,88.2c1.1-0.4,2.3-0.6,3.5-0.6c5.6,0,10.2,4.2,10.7,9.8L40,42.2"/>
+<polyline id="line7" class="st0" points="452,1 113,1 1,95.1 1,761 "/>
+<polyline id="line6" class="st1" points="431.7,10.2 78.4,9.9 10.5,67.1 10.5,760 "/>
+<path id="line5" class="st0" d="M410,23H105L26.1,88.2c1.1-0.4,2.3-0.6,3.5-0.6c5.6,0,10.2,4.2,10.7,9.8L40,42.2"/>
 <path id="line4" class="st0" d="M20,772V106l0.4,0.4c7.8,7.9,12,8,19.3-0.8l0.4-0.4V771"/>
 <path class="st0" d="M30,775V104"/>
 <polyline id="line2" class="st2" points="48.5,760 48.5,87 142,8.5 "/>

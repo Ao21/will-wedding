@@ -1,6 +1,6 @@
 import { Shape, Tween, Timeline, addShape, CustomShape, easing } from 'mo-js';
 import { StrokeDashArray } from './../core/animations/stroke-dasharray';
-
+import {BORDER_TIME_DELAY} from './../core/consts/timings';
 export class HeaderItemTopLeft {
 
 	timeline: Timeline;
@@ -13,7 +13,9 @@ export class HeaderItemTopLeft {
 		this.initShapes();
 		this.el = el;
 
-		this.timeline = new Timeline({});
+		this.timeline = new Timeline(
+			{ delay: BORDER_TIME_DELAY }
+		);
 		this.shapeArr.forEach((e, i) => {
 			this.createShape(e.name, e.stroke, e.path, i, e.round);
 		})

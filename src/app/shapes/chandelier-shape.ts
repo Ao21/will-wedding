@@ -14,10 +14,11 @@ export class Chandelier {
 		this.initShapes();
 		this.el = el;
 
-		this.timeline = new Timeline({});
+		this.timeline = new Timeline();
 		this.shapeArr.forEach((e, i) => {
 			this.createShape(e.name, e.stroke, e.path, i, e.round);
 		});
+		this.createAmpersand();
 
 		this.timeline.play();
 	}
@@ -26,6 +27,9 @@ export class Chandelier {
 		let angle = ['rand(-50,-70)'];
 		let repeatCount = 0;
 		let rPositions = [[-100, 100, 50], [-75, 75, 25], [-50, 50, 20], [-30, 30, 20], [-10, 10, 10], [0, 0]];
+
+		let height = window.innerHeight;
+
 		let lPos = -100;
 		let flip1 = false;
 		let s = new Shape({
@@ -36,29 +40,34 @@ export class Chandelier {
 			strokeLinecap: round ? 'round' : null,
 			fill: 'white',
 			strokeWidth: stroke,
-			scale: 1,
-			top: -240,
+			scale: 0.7,
+			top: 0,
 			origin: '50% 0%',
 			left: '50%',
-			angle: { '-20': -30 },
+			angle: -10,
 			x: 0,
-			y: { 0: 480, easing: easing.elastic.inout },
+			y: window.innerHeight + 280,
 			repeat: 0,
 			isYoyo: true,
-			duration: 800,
+			duration: 0,
 			width: 286,
 			height: 264,
 		}).then({
+			// delay: 7000,
+			duration: 2400,
 			easing: easing.linear,
-			angle: { to: 50 },
-			}).then({
-			easing: easing.linear,
-			angle: { to: -40 },
-			}).then({
-			easing: easing.linear,
-			angle: { to: 30 },
+			angle: { '-10': 0 },
+			y: { to: 180 }
 		}).then({
-			// origin: { to: '40% 0%' },
+			easing: easing.linear,
+			angle: { to: 20 },
+		}).then({
+			easing: easing.linear,
+			angle: { to: -10 },
+		}).then({
+			easing: easing.linear,
+			angle: { to: 5 },
+		}).then({
 			angle: { to: 0 },
 			duration: 1200,
 		})
@@ -67,14 +76,77 @@ export class Chandelier {
 
 	initShapes() {
 		addShape('ChandlierShape', ChandlierShape);
+		addShape('Ampersand', Ampersand);
+
 		this.shapeArr.push(
 			{
 				name: 'ChandlierShape',
 				stroke: 1, round: true,
 				path: null
+			},
+		)
+	}
+
+	createAmpersand() {
+		let s = new Shape({
+			shape: 'Ampersand',
+			fill: 'white',
+			stroke: 'none',
+			parent: this.el,
+			fillOpacity: { 0: 1 },
+			top: 140,
+			origin: '50% -180px',
+			left: '50%',
+			easing: easing.cubic.inout,
+			duration: 0,
+			width: 412,
+			height: 203,
+			y: window.innerHeight + 280,
+			x: -14,
+			scale: 1,
+			isShowStart: true,
+		}).then({
+			duration: 2400,
+			easing: easing.linear,
+			angle: { '-10': 0 },
+			y: { to: 180 }
+		}).then({
+			easing: easing.linear,
+			angle: { to: 20 },
+		}).then({
+			easing: easing.linear,
+			angle: { to: -10 },
 			})
+		.then({
+			duration: 900,
+			easing: easing.linear,
+			angle: { to: -5 },
+		}).then({
+			easing: easing.cubic.inout,
+			duration: 600,
+			angle: { to: 0 },
+			top: window.innerHeight / 2,
+			x: {to: 0},
+			y: {to: -55}
+		})
+		this.timeline.add(s);
 	}
 }
+
+class Ampersand extends CustomShape {
+	getShape() {
+		return `<path id="ampersand" transform="translate(-155, -51.5)" class="st0" d="M212.6,34.5c-1.2-1-2.8-1.4-4.3-1.2c-0.2-2.1-0.5-4.3-0.8-6.7l3.7-2.5
+			c8.4-5.6,5.7-19.6,3.8-23.4c-9.3,5.4-9.9,16.1-9.5,22.5c-2.7,2-5.6,3.9-8.4,6.2c-4.8,3.9-4.3,10.6-3,13.9
+			c2.6,5.2,8.5,7.9,14.1,6.5c0.2,2.1,0.1,4.2-0.4,6.2c-1.4,3.9-6.1,3.7-7,2.4c2.1,0.3,3.7-2,3.5-3.8c-0.2-2-2-3.5-4-3.3
+			c-0.1,0-0.1,0-0.2,0c-1.9,0.4-3.4,2.3-3.1,5s4.5,4.9,9,3.3c3.8-1.3,3.9-6.6,3.6-10.5l0.2-0.1C218.3,45.8,216.3,37.3,212.6,34.5z
+			 M214.6,3.6c3.2,8.9-1.3,13.8-7.7,18.6C206.1,15.1,209,8,214.6,3.6z M203.9,48.5c-3.6-0.2-6.8-2.7-7.7-8.9
+			c-0.6-4.1,3.9-7.9,9.8-12v0.2c0.1,0.9,0.4,3,0.7,5.8c-1.8,0.5-3.4,1.8-4.3,3.4c-0.9,2.2-0.9,5.5,2.3,8.8c-2.1-3.1-1-6.9,1.2-8.1
+			c0.4-0.2,0.8-0.3,1.2-0.4c0.4,3.4,0.8,7.2,0.9,10.5C206.8,48.3,205.3,48.5,203.9,48.5z M212.8,42.7c-0.1,2-1.4,3.8-3.2,4.5l0,0
+			c-0.2-2-0.4-5.4-0.9-9.8C211.2,37.9,212.9,40.2,212.8,42.7L212.8,42.7z"/>`
+	}
+
+}
+
 
 class ChandlierShape extends CustomShape {
 	getShape() {
