@@ -54,23 +54,26 @@ export class Chandelier {
 			height: 264,
 		}).then({
 			// delay: 7000,
-			duration: 2400,
-			easing: easing.linear,
-			angle: { '-10': 0 },
+			duration: 4000,
+			easing: easing.ease.inout,
+			angle: { '-40': 50 },
 			y: { to: 180 }
 		}).then({
-			easing: easing.linear,
+			duration: 1200,
+			easing: easing.cubic.inout,
+			angle: { to: -30 },
+		}).then({
+			duration: 1200,
+			easing: easing.cubic.inout,
 			angle: { to: 20 },
 		}).then({
-			easing: easing.linear,
+			duration: 1200,
+			easing: easing.cubic.inout,
 			angle: { to: -10 },
 		}).then({
-			easing: easing.linear,
-			angle: { to: 5 },
-		}).then({
-			angle: { to: 0 },
 			duration: 1200,
-		})
+			angle: { to: 0 },
+		});
 		this.timeline.add(s);
 	}
 
@@ -102,33 +105,35 @@ export class Chandelier {
 			width: 412,
 			height: 203,
 			y: window.innerHeight + 280,
-			x: -14,
+			x: -16,
 			scale: 1,
 			isShowStart: true,
 		}).then({
-			duration: 2400,
-			easing: easing.linear,
-			angle: { '-10': 0 },
-			y: { to: 180 }
+			duration: 4000,
+			easing: easing.ease.inout,
+			angle: { '-40': 50 },
+			y: { to: 185 }
 		}).then({
-			easing: easing.linear,
+			duration: 1200,
+			easing: easing.cubic.inout,
+			angle: { to: -30 },
+		}).then({
+			duration: 1200,
+			easing: easing.cubic.inout,
 			angle: { to: 20 },
 		}).then({
-			easing: easing.linear,
-			angle: { to: -10 },
-			})
-		.then({
-			duration: 900,
-			easing: easing.linear,
-			angle: { to: -5 },
-		}).then({
+			duration: 1200,
 			easing: easing.cubic.inout,
-			duration: 600,
-			angle: { to: 0 },
-			top: window.innerHeight / 2,
-			x: {to: 0},
-			y: {to: -55}
+			angle: { to: -10 },
 		})
+			.then({
+				easing: easing.cubic.inout,
+				duration: 500,
+				angle: { to: 0 },
+				top: window.innerHeight / 2,
+				x: { to: 0 },
+				y: { to: -55 }
+			})
 		this.timeline.add(s);
 	}
 }

@@ -46,7 +46,7 @@ export class Header {
             top: window.innerHeight / 2,
             left: '50%',
             easing: easing.cubic.inout,
-            duration:6000 + 2400,
+            duration: 8800 - 1000,
             width: 412,
             height: 203,
             y: -50,
@@ -62,39 +62,13 @@ export class Header {
         return s; 
     }    
 
-    createAmpersand() {
-        let s = new Shape({
-            shape: 'Ampersand',
-            fill: 'white',
-            stroke: 'none',
-            fillOpacity: { 0: 1 },
-            top: '50%',
-            left: '50%',
-            easing: easing.cubic.inout,
-            duration: 0,
-            width: 412,
-            height: 203,
-            y: window.innerHeight + 280,
-            x: 0,
-            scale: 1,
-            isShowStart: true,
-        }).then({
-            delay: 8000,
-
-            duration: 2400,
-            easing: easing.linear,
-            angle: { '-10': 0 },
-            y: { to: -50 }
-            });
-        this.timeline.add(s);
-    }
 }
 
 
 class WillPatrick extends CustomShape {
 	getShape() {
 		return `<g id="will-patrick" transform="translate(-155, -51.5)">
-	<path transform=" scale(1, 1) class="st1" d="M92.1,121.3v7l-2.1,2v-13.1c-0.7,0-1.4-0.1-2-0.3c-0.6-0.2-1.4-0.6-2.4-1.2c-1-0.6-1.8-1.5-2.5-2.8
+	<path class="st1" d="M92.1,121.3v7l-2.1,2v-13.1c-0.7,0-1.4-0.1-2-0.3c-0.6-0.2-1.4-0.6-2.4-1.2c-1-0.6-1.8-1.5-2.5-2.8
 		c-0.7-1.3-1.1-2.7-1.1-4.1c0-2.3,0.6-4,1.7-5.2c1.2-1.2,2.2-2,3.2-2.5c1-0.5,2-0.7,3.1-0.7h0.4h1.5h0.2c1.8,0,3.5,0.5,5.1,1.4
 		c1.6,0.9,2.8,2.2,3.7,3.8c0.9,1.6,1.4,3.3,1.4,5.2c0,1.4-0.3,2.7-0.8,3.9c-0.5,1.3-1.2,2.4-2.2,3.3c-0.9,0.9-2.1,1.7-3.3,2.3
 		C94.8,121.1,93.5,121.3,92.1,121.3z M90,115.2v-12.6c-1.6,0-3,0.6-4.2,1.9c-1.2,1.3-1.7,2.7-1.7,4.4c0,1.7,0.4,3,1.3,3.9
