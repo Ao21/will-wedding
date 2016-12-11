@@ -28,12 +28,19 @@ export class Chandelier {
 		let repeatCount = 0;
 		let rPositions = [[-100, 100, 50], [-75, 75, 25], [-50, 50, 20], [-30, 30, 20], [-10, 10, 10], [0, 0]];
 
+		
+
+		let mql = window.matchMedia('(max-width:499px)').matches
 		let height = window.innerHeight;
+		if (mql) {
+			height = window.innerHeight - 50;
+		}
 
 		let lPos = -100;
 		let flip1 = false;
 		let s = new Shape({
 			shape: name,
+			className: 'chandelier-shape',
 			isShowEnd: true,
 			isShowStart: true,
 			parent: this.el,
@@ -132,7 +139,7 @@ export class Chandelier {
 				angle: { to: 0 },
 				top: window.innerHeight / 2,
 				x: { to: 0 },
-				y: { to: -55 }
+				y: { to: -5 }
 			})
 		this.timeline.add(s);
 	}

@@ -19,8 +19,8 @@ export class ChandelierComponent implements OnInit {
 	ngOnInit() {
 		this.header = new Header(this.el.nativeElement.querySelector('.header_container'));
 		this.chandelier = new Chandelier(this.el.nativeElement.querySelector('.shape_container'));
-		this.mask = new Mask(this.el.nativeElement.querySelector('.mask_container'));
-		this.topHat = new TopHat(this.el.nativeElement.querySelector('.mask_container'));
+		// this.mask = new Mask(this.el.nativeElement.querySelector('.mask_container'));
+		// this.topHat = new TopHat(this.el.nativeElement.querySelector('.mask_container'));
 	}
 
 }

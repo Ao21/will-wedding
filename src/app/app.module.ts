@@ -9,13 +9,15 @@ import { MojsInit } from './shapes/mo-js.init';
 import { HeaderLeftComponent } from './components/header-left/header-left.component';
 import { HeaderRightComponent } from './components/header-right/header-right.component';
 import { ChandelierComponent } from './components/chandelier/chandelier.component';
+import { TicketComponent } from './components/ticket/ticket.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderLeftComponent,
     HeaderRightComponent,
-    ChandelierComponent
+    ChandelierComponent,
+    TicketComponent
   ],
   imports: [
     BrowserModule,

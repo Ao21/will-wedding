@@ -15,3 +15,10 @@ c-header-right {
     right: 480px;
   }
 }
+
+@media (max-width:499px){
+  :host,
+  c-header-right {
+    opacity: 0;
+  }
+}

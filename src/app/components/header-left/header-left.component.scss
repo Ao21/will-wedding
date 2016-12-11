@@ -7,3 +7,9 @@ c-header-left {
         left: 0;
     }
 }
+@media (max-width:499px){
+  :host,
+  c-header-left {
+    opacity: 0;
+  }
+}

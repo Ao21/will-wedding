@@ -37,21 +37,27 @@ export class Header {
 		addShape('WillPatrick', WillPatrick);
     }
 
-    createShape(shape, x, y) {
+	createShape(shape, x, y) {
+		let mql = window.matchMedia('(max-width:499px)').matches;
+		let scale = 1;
+		if (mql) {
+			scale = 0.8;
+		}
         let s = new Shape({
             shape: shape,
             fill: 'white',
             stroke: 'none',
-            fillOpacity: 0,
+			fillOpacity: 0,
+			parent: this.el,
             top: window.innerHeight / 2,
             left: '50%',
             easing: easing.cubic.inout,
             duration: 8800 - 1000,
             width: 412,
             height: 203,
-            y: -50,
+            y: 0,
             x: x,
-            scale: 1,
+            scale: scale,
             isShowStart: true,
         }).then({
             duration: 600,

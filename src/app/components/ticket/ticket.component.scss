@@ -1,0 +1,8 @@
+.ticket_container {
+    .ticketVertical {
+        transition: 0.3s all;
+        &:hover {
+            transform: translateY(-30px);
+        }
+    }
+}
