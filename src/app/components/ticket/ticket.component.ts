@@ -45,6 +45,9 @@ export class TicketComponent implements OnInit {
   }
 
   openTicket() {
+    if (this.ticketIsOpen) {
+      return;
+    }
     this.ticket.open();
     this.ticketIsOpen = true;
   }
