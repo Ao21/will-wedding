@@ -30,6 +30,11 @@ export class TicketComponent implements OnInit {
 
   model = new MailchimpModel('', '', '', '', '');
 
+  isSubmitted: boolean = false;  
+  isValidSubmit: boolean = false;
+  isInvalidSubmit: boolean = false;
+
+  defaultValue = "Save";
   constructor(
     private http: Jsonp,
     private el: ElementRef
@@ -49,9 +54,21 @@ export class TicketComponent implements OnInit {
     formData.u = '9c094231e20a57997f234dd79';
     formData.id = '8c27d4ca67';
     formData.subscribe = 'Subscribe';
-    console.log(formData);
+    this.isSubmitted = true;
+    this.isInvalidSubmit = false;
+    this.isValidSubmit = false;
     let url = this.mailChimpUrl + this.jsonToQueryString(formData) + '&c=JSONP_CALLBACK';
-    this.http.get(url).subscribe((next) => { console.log(next) }, (err) => { console.log(err) });
+    this.http.get(url).subscribe((next) => {
+      let res = next.json();
+      if (res.result === 'error') {
+        this.isInvalidSubmit = true;
+        this.isSubmitted = false;
+        this.defaultValue = 'Try Again.'
+      } else {
+        this.defaultValue = 'Thanks!'
+        this.isValidSubmit = true;
+      }
+    }, (err) => { console.log(err) });
   }
 
   jsonToQueryString(json) {
