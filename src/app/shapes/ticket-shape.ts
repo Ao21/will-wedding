@@ -41,8 +41,12 @@ export class Ticket {
 		this.shape.pause();
 		vEl.style.transform = `translateY(600px) rotate(90deg)`;
 		this.formElement.style.transform = `translateY(${window.innerHeight / 2 + 50}px) translateX(-50%)`;
+		
 		this.createHorizontalShape();
 		this.isOpen = true;
+		setTimeout(() => {
+			vEl.style.display = 'none';
+		}, 400);
 	}
 
 	initShapes() {
