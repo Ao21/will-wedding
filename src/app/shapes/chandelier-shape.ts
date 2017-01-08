@@ -32,7 +32,10 @@ export class Chandelier {
 
 		let mql = window.matchMedia('(max-width:499px)').matches
 		let height = window.innerHeight;
+
+		let top = 180;
 		if (mql) {
+			top= 100;
 			height = window.innerHeight - 50;
 		}
 
@@ -64,7 +67,7 @@ export class Chandelier {
 			duration: 4000,
 			easing: easing.ease.inout,
 			angle: { '-40': 50 },
-			y: { to: 180 }
+			y: { to: top }
 		}).then({
 			duration: 1200,
 			easing: easing.cubic.inout,
@@ -98,6 +101,15 @@ export class Chandelier {
 	}
 
 	createAmpersand() {
+
+		let mql = window.matchMedia('(max-width:499px)').matches
+		let height = window.innerHeight;
+
+		let top = 185;
+		if (mql) {
+			top = 105;
+		}
+
 		let s = new Shape({
 			shape: 'Ampersand',
 			fill: 'white',
@@ -119,7 +131,7 @@ export class Chandelier {
 			duration: 4000,
 			easing: easing.ease.inout,
 			angle: { '-40': 50 },
-			y: { to: 185 }
+			y: { to: top }
 		}).then({
 			duration: 1200,
 			easing: easing.cubic.inout,
