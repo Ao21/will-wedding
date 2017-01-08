@@ -37,10 +37,14 @@
     c-ticket {
         position: absolute;
         left: 0;
-        overflow: scroll;
+        overflow: none;
         width: 100%;
         /* float: left; */
         height: 100vh;
+
+        &.open {
+            overflow: scroll;
+        }
     }
     .ticket_container {
         position: relative;

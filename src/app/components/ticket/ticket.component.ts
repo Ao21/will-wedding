@@ -18,6 +18,9 @@ export class MailchimpModel {
   selector: 'c-ticket',
   encapsulation: ViewEncapsulation.None,
   templateUrl: './ticket.component.html',
+  host: {
+    '[class.open]':'ticketIsOpen',
+  },
   styleUrls: ['./ticket.component.scss']
 })
 export class TicketComponent implements OnInit {
