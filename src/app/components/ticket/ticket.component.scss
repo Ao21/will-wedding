@@ -1,3 +1,29 @@
+#mc_embed_signup_scroll {
+    position: relative;
+    overflow: hidden;
+    .mc-field-group {
+        float: left;
+        width: 100%;
+        transition: 0.3s all ease;
+        &.complete {
+            transform: translateY(-200px)
+        }
+    }
+    .group {
+        height: 185px;
+        overflow: hidden;
+    }
+    p.response {
+        transition: 0.3s all ease 0.3s;
+    }
+    p.response.complete {
+        color: white;
+        float: left;
+        width: 100%;
+        transform: translateY(-140px);
+    }
+}
+
 .ticket_container {
     .ticketVertical {
         transition: .3s all;
