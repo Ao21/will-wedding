@@ -30,6 +30,10 @@ export class Ticket {
 		if (this.isOpen) {
 			return;
 		}
+
+		this.textShape1.setProgress(0).pause();
+		this.textShape2.setProgress(0).pause();
+		
 		let vEl: any = this.el.querySelector('.ticketVertical');
 
 		let leftHeaderItems = document.querySelector('c-header-left');
@@ -43,8 +47,7 @@ export class Ticket {
 		this.moveItemVertical(chanelier, -window.innerHeight);
 
 		this.shape.pause();
-		this.textShape1.setProgress(0).pause();
-		this.textShape2.setProgress(0).pause();
+		
 		vEl.style.transform = `translateY(600px) rotate(90deg)`;
 
 		this.formElement.style.transform = `translateY(${window.innerHeight / 2 + 50}px) translateX(-50%)`;
