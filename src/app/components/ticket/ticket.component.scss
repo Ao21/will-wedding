@@ -15,6 +15,9 @@
     }
     p.response {
         transition: 0.3s all ease 0.3s;
+        margin-top:40px;
+        float: left;
+        width: 100%;
     }
     p.response.complete {
         color: white;
