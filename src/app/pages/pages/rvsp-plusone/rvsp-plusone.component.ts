@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { Jsonp, Headers, RequestOptions } from '@angular/http';
 
@@ -34,6 +34,7 @@ export class RSVPModel {
 	styleUrls: ['./rvsp-plusone.component.scss']
 })
 export class RvspPlusoneComponent implements OnInit {
+	@HostBinding('attr.id') id = 'rsvp';
 	private mailChimpUrl = 'http://wilandpatrickwedding.us14.list-manage.com/subscribe/post-json';
 	model = new RSVPModel();
 
