@@ -1,0 +1,52 @@
+@import "../../../../styles/utils/utils";
+
+:host {
+	flex: 1 1 auto;
+	position:relative;
+	background-color: $color-background-dark;
+	width: 100%;
+	padding: 0 35px;
+	float: left;
+
+	display: flex;
+
+	img {
+		position: absolute;
+		height: 100%;
+		&:last-of-type {
+			right: 35px;
+		}
+	}
+
+	section {
+		flex: 1 1 auto;
+		padding-top: $spacing-quad;
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: center;
+		margin-bottom: $spacing-quad;
+	}
+
+	h2,
+	p {
+		flex: 0 0 auto;
+		color: $color-light;
+		text-align: center;
+		max-width: 70%;
+		margin-bottom: $spacing-whole;
+	}
+
+	h2 {
+		font-family: 'mrs-eaves';
+		max-width: 60%;
+		margin-bottom: $spacing-double;
+	}
+
+	.spacer {
+		flex: 0 0 auto;
+		width: 100px;
+		height: 5px;
+		background-color: $color-light;
+		margin-bottom: $spacing-double;
+	}
+}

@@ -1,4 +1,13 @@
-import { Shape, Tween, Timeline, Burst, addShape, CustomShape, easing, ShapeSwirl } from 'mo-js';
+import {
+	Shape,
+	Tween,
+	Timeline,
+	Burst,
+	addShape,
+	CustomShape,
+	easing,
+	ShapeSwirl
+} from 'mo-js';
 import { StrokeDashArray } from './../core/animations/stroke-dasharray';
 import { BORDER_TIME_DELAY } from './../core/consts/timings';
 import * as _ from 'lodash';
@@ -15,7 +24,7 @@ export class Ticket {
 	textShape1: Shape;
 	textShape2: Shape;
 
-	isOpen: boolean = false;
+	isOpen = false;
 
 	constructor(el, el2) {
 		this.initShapes();
@@ -33,12 +42,12 @@ export class Ticket {
 
 		this.textShape1.setProgress(0).pause();
 		this.textShape2.setProgress(0).pause();
-		
-		let vEl: any = this.el.querySelector('.ticketVertical');
 
-		let leftHeaderItems = document.querySelector('c-header-left');
-		let RightHeaderItems = document.querySelector('c-header-right');
-		let chanelier = document.querySelector('c-chandelier');
+		const vEl: any = this.el.querySelector('.ticketVertical');
+
+		const leftHeaderItems = document.querySelector('c-header-left');
+		const RightHeaderItems = document.querySelector('c-header-right');
+		const chanelier = document.querySelector('c-chandelier');
 
 		this.formElement = document.querySelector('.form');
 
@@ -47,11 +56,13 @@ export class Ticket {
 		this.moveItemVertical(chanelier, -window.innerHeight);
 
 		this.shape.pause();
-		
+
 		vEl.style.transform = `translateY(600px) rotate(90deg)`;
 
-		this.formElement.style.transform = `translateY(${window.innerHeight / 2 + 50}px) translateX(-50%)`;
-		
+		this.formElement.style.transform = `translateY(${window.innerHeight /
+			2 +
+			50}px) translateX(-50%)`;
+
 		this.createHorizontalShape();
 		this.isOpen = true;
 		setTimeout(() => {
@@ -66,38 +77,37 @@ export class Ticket {
 		addShape('clickHere', ClickHere);
 	}
 
-
 	moveItemHorizontal(el, to) {
-		let tween = new Tween({
+		const tween = new Tween({
 			delay: 0,
 			duration: 1500,
 			isYoyo: true,
 			repeat: 1,
 			easing: easing.cubic.inout,
 			onUpdate: (ep, p) => {
-				let v = ep * to;
+				const v = ep * to;
 				el.style.transform = `translateX(${v}px)`;
 			}
-		})
+		});
 		tween.play();
 	}
 
 	moveItemVertical(el, to) {
-		let tween = new Tween({
+		const tween = new Tween({
 			delay: 750,
 			duration: 3000,
 			easing: easing.cubic.out,
 			onUpdate: (ep, p) => {
-				let v = ep * to;
+				const v = ep * to;
 				el.style.transform = `translateY(${v}px)`;
 			}
-		})
+		});
 		tween.play();
 	}
 
 	createShape() {
-		let width = 1000;
-		let height = width * 0.51;
+		const width = 1000;
+		const height = width * 0.51;
 		this.shape = new Shape({
 			shape: 'TicketShapeNoText',
 			className: 'ticketVertical',
@@ -114,14 +124,14 @@ export class Ticket {
 			y: { '100%': '25%' },
 			duration: 1800,
 			width: width,
-			height: height,
+			height: height
 		});
 		this.shape.play();
 	}
 
 	createText() {
-		let width = 15;
-		let height = 100;
+		const width = 15;
+		const height = 100;
 		this.textShape1 = new Shape({
 			shape: 'saveTheDate',
 			className: 'ticketVertical',
@@ -130,7 +140,7 @@ export class Ticket {
 			parent: this.el,
 			easing: easing.bounce.in,
 			top: window.innerHeight - 130,
-			scale: {0 : 1},
+			scale: { 0: 1 },
 			origin: '50% 50%',
 			angle: 90,
 			delay: 12100,
@@ -138,14 +148,14 @@ export class Ticket {
 			y: { '100%': '25%' },
 			duration: 300,
 			width: width,
-			height: height,
+			height: height
 		}).then({
 			isYoyo: true,
 			repeat: 99,
 			scale: { 1: 0 },
 			duration: 300,
 			delay: 3600
-		})
+		});
 
 		this.textShape2 = new Shape({
 			shape: 'clickHere',
@@ -170,16 +180,14 @@ export class Ticket {
 			scale: { 0: 1 },
 			duration: 300,
 			delay: 3600
-		})
-		
-			;
+		});
 		this.textShape1.play();
 		this.textShape2.play();
 	}
 
 	createHorizontalShape() {
-		let width = 626;
-		let height = width * 0.51;
+		const width = 626;
+		const height = width * 0.51;
 		this.shape2 = new Shape({
 			shape: 'TicketShape',
 			className: 'ticketHorizontal',
@@ -199,12 +207,10 @@ export class Ticket {
 			onComplete: () => {
 				this.formElement.style.opacity = '1';
 			},
-			height: height,
+			height: height
 		});
 		this.shape2.play();
 	}
-
-	
 }
 
 class ClickHere extends CustomShape {
@@ -236,10 +242,9 @@ class ClickHere extends CustomShape {
 		<path style="fill:#FFFFFF;" d="M83.8,126.4c-1.9,0-3.3-1.7-3.3-3.3c0-1.6,1.3-2.9,2.8-2.4v4.3c1.7,0.2,3-0.5,3-2.3
 			c0-0.6-0.3-1.5-0.8-2l0.4-0.3c0.7,0.6,1.2,1.7,1.2,2.8C87.1,125,85.6,126.4,83.8,126.4z M82.7,121.8c-0.6-0.2-1.5,0.1-1.5,1.3
 			c0,0.8,0.6,1.4,1.5,1.7V121.8z"/>
-	</g>`
+	</g>`;
 	}
 }
-
 
 class SaveTheDate extends CustomShape {
 	getShape() {
@@ -279,7 +284,7 @@ class SaveTheDate extends CustomShape {
 			<path style="fill:#FFFFFF;" d="M83.5,118.4c-1.9,0-3.3-1.7-3.3-3.3c0-1.6,1.3-2.9,2.8-2.4v4.3c1.7,0.2,3-0.5,3-2.3
 				c0-0.6-0.3-1.5-0.8-2l0.4-0.3c0.7,0.6,1.2,1.7,1.2,2.8C86.8,117.1,85.3,118.4,83.5,118.4z M82.4,113.9c-0.6-0.2-1.5,0.1-1.5,1.3
 				c0,0.8,0.6,1.4,1.5,1.7V113.9z"/>
-		</g>`
+		</g>`;
 	}
 }
 
@@ -1504,7 +1509,7 @@ class TicketShape extends CustomShape {
 				/>
 		</g>
 	</g>
-</g>`
+</g>`;
 	}
 }
 
@@ -2692,6 +2697,6 @@ class TicketShapeNoText extends CustomShape {
 				/>
 		</g>
 	</g>
-</g>`
+</g>`;
 	}
 }

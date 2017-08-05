@@ -1,0 +1,102 @@
+@import "../../../../styles/utils/utils";
+@import "../../../../styles/base/inputs";
+:host {
+	flex: 1 1 auto;
+	position: relative;
+	background-color: $color-background-light;
+	width: 100%;
+	padding: 0 35px;
+	height: 100%;
+	float: left;
+
+	display: flex;
+	padding: 0 95px;
+
+	justify-content: center;
+
+	& > section {
+		flex: 1 1 auto;
+		padding: $spacing-quad 65px 0;
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: center;
+		margin-bottom: $spacing-quad;
+
+		& > h2 {
+			flex: 0 0 auto;
+			color: $color-dark;
+			text-align: center;
+			max-width: 70%;
+			font-family: 'mrs-eaves';
+			max-width: 60%;
+			margin-bottom: $spacing-double;
+		}
+	}
+
+	.spacer {
+		flex: 0 0 auto;
+		width: 100px;
+		height: 5px;
+		background-color: $color-dark;
+		margin-bottom: $spacing-double;
+	}
+
+
+	form {
+		flex: 1 1 auto;
+		max-width: 80%;
+		
+	}
+
+	.mc {
+		&-form {
+			flex: 1 1 auto;
+			width: 100%;
+		}
+		&-field-group {
+			display: flex;
+			flex-flow: column nowrap;
+			margin-bottom: $spacing-quarter;
+
+			@include o-input();
+
+		}
+
+		&-embedded-subscribe {
+			width: 100%;
+			min-height: 3rem;
+			@include type-scale(0);
+			background-color: $color-blue;
+			color: white;
+			box-shadow: none;
+			border: 1px solid $border-dark;
+
+			&[disabled]{
+				background-color: $color-grey;
+			}
+		}
+
+		&-address-group {
+			display: flex;
+			flex-flow: row wrap;
+
+			.mc-field-group {
+				width: 100%;
+			}
+			
+
+			.size1of2 {
+				flex: 1 1 50%;
+				padding-right: $spacing-half;
+				width: 50%;
+				&:nth-of-type(2n) {
+					padding-right: 0;
+				}
+			}
+		}
+
+
+		
+	}
+
+}

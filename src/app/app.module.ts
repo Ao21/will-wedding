@@ -11,23 +11,29 @@ import { HeaderRightComponent } from './components/header-right/header-right.com
 import { ChandelierComponent } from './components/chandelier/chandelier.component';
 import { TicketComponent } from './components/ticket/ticket.component';
 
+import { PagesModule } from './pages/pages/pages.module';
+
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app.routes';
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderLeftComponent,
-    HeaderRightComponent,
-    ChandelierComponent,
-    TicketComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    JsonpModule
-  ],
-  providers: [
-    MojsInit
-  ],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		HeaderLeftComponent,
+		HeaderRightComponent,
+		ChandelierComponent,
+		TicketComponent
+	],
+	imports: [
+		BrowserModule,
+		RouterModule,
+		FormsModule,
+		HttpModule,
+		JsonpModule,
+		PagesModule,
+		AppRoutingModule
+	],
+	providers: [MojsInit],
+	bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

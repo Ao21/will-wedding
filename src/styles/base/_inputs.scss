@@ -1,0 +1,48 @@
+@import "../utils/utils";
+
+@mixin o-input() {
+	label {
+		margin-bottom: $spacing-quarter;
+	}
+	input {
+		width: 100%;
+		padding: $spacing-half;
+		@include type-scale(1);
+		border: 1px solid rgba(0, 0, 0, 0.1);
+		margin-bottom: $spacing-half;
+		font-weight: 200;
+		font-family: $font-family-sans;
+
+		&.ng-touched.ng-invalid {
+			border-color: $color-red;
+		}
+		&:-webkit-autofill,
+		&:-webkit-autofill:hover,
+		&:-webkit-autofill:focus,
+		&.ng-touched.ng-valid {
+			border: 1px solid $color-blue;
+			-webkit-text-fill-color: $color-dark;
+			-webkit-box-shadow: 0 0 0px 1000px white inset;
+			transition: background-color 5000s ease-in-out 0s;
+		}
+	}
+
+	select {
+		height: 47px;
+		@include type-scale(1);
+		font-weight: 200;
+		font-family: $font-family-sans;
+		background-color: white;
+		margin-bottom: $spacing-half;
+		border: none;
+		border-radius: 0;
+
+		&:-webkit-autofill,
+		&:-webkit-autofill:hover,
+		&:-webkit-autofill:focus  {
+			-webkit-text-fill-color: $color-dark;
+			-webkit-box-shadow: 0 0 0px 1000px white inset;
+			transition: background-color 5000s ease-in-out 0s;
+		}
+	}
+}

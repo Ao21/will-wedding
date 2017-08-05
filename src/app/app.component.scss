@@ -1,21 +1,38 @@
-.top__headers {    
-    float: left;
-    width: 100%;
-    display: flex;
-    position: relative;
+@import "./styles/content/content";
+
+.top__headers {
+	float: left;
+	width: 100%;
+	display: flex;
+	position: fixed;
+}
+
+.top__foreground {
+	position: fixed;
+	width: 100%;
+	z-index: -1;
 }
 
 c-header-left,
 c-header-right {
-    flex: 1 1 50%;
-    float: left;
-    position: relative;
-    width: 50%;
-    height: 100vh;
-    overflow: hidden;
-
+	flex: 1 1 50%;
+	float: left;
+	position: relative;
+	width: 50%;
+	height: 100vh;
+	overflow: hidden;
 }
 
 c-header-right {
-    
+}
+
+.content {
+	padding-top: 65vh;
+	position: relative;
+	float: left;
+	width: 100%;
+	z-index: 99999999;
+	display: flex;
+	justify-content: center;
+	flex-flow: column nowrap;
 }

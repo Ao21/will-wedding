@@ -1,14 +1,14 @@
-import { WillPage } from './app.po';
+import { AppPage } from './app.po';
 
-describe('will App', function() {
-  let page: WillPage;
+describe('will-wedding-temo App', () => {
+  let page: AppPage;
 
   beforeEach(() => {
-    page = new WillPage();
+    page = new AppPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual('Welcome to app!');
   });
 });

@@ -1,0 +1,103 @@
+@import "../../../../styles/utils/utils";
+
+:host {
+	flex: 1 1 auto;
+	position: relative;
+	background-color: white;
+	width: 100%;
+	padding: 0 35px;
+	height: 100vh;
+	float: left;
+
+	display: flex;
+
+	& > img.borders {
+		position: absolute;
+		height: 100%;
+		&:last-of-type {
+			right: 35px;
+		}
+	}
+
+	& > section {
+		flex: 1 1 auto;
+		padding: $spacing-quad 65px 0;
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: center;
+		margin-bottom: $spacing-quad;
+
+		& > h2 {
+			flex: 0 0 auto;
+			color: $color-dark;
+			text-align: center;
+			max-width: 70%;
+			font-family: 'mrs-eaves';
+			max-width: 60%;
+			margin-bottom: $spacing-double;
+		}
+	}
+
+
+	.spacer {
+		flex: 0 0 auto;
+		width: 100px;
+		height: 5px;
+		background-color: $color-dark;
+		margin-bottom: $spacing-double;
+	}
+
+	.tab {
+		&__container {
+			display: flex;
+			flex-flow: column nowrap;
+			margin: 0 $spacing-double;
+			width: 80%;
+		}
+		&__item {
+			article {
+				max-width: 100%;
+				margin-left: 3rem;
+			}
+			header {
+				display: flex;
+				align-items: flex-end;
+				margin-bottom: $spacing-half;
+				img {
+					margin-right: $spacing-whole;
+				}
+				h3 {
+					font-family: 'jubilat';
+					font-weight: 200;
+				}
+			}
+		}
+	}
+
+	nav {
+		margin-bottom: $spacing-double;
+		a {
+			font-family: 'mrs-eaves';
+			@include type-scale(1);
+			margin-right: 2rem;
+			cursor: pointer;
+
+			&:after {
+				content: '-';
+				position: absolute;
+				margin-left: 1rem;
+				transform: translateX(-0.1rem);
+			}
+			&:last-child {
+				margin-right: 0;
+			}
+			&:last-child:after {
+				content: '';
+			}
+
+			&.active {
+				text-decoration: underline;
+			}
+		}
+	}
+}

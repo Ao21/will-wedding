@@ -3,4 +3,9 @@ c-chandelier {
     position: absolute;
     left: 0;
     width: 100%;
+
+    transition: all 0.7s cubic-bezier(0.075, 0.82, 0.165, 1);
+    &.is-done {
+        transform:translateY(-330px);
+    }
 }

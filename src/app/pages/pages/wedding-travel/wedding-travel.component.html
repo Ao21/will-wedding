@@ -1,0 +1,59 @@
+<img class="borders" src="assets/svgs/left-lines.svg" alt="">
+<section>
+  <h2>Travel</h2>
+  <div class="spacer"></div>
+  <nav class="tabs">
+    <a [class.active]="activeTab === 'bus'" (click)="selectTab('bus')">Bus</a>
+    <a [class.active]="activeTab === 'train'" (click)="selectTab('train')">Train</a>
+    <a [class.active]="activeTab === 'parking'" (click)="selectTab('parking')">Parking</a>
+  </nav>
+  <div class="tab__container">
+    <div *ngIf="activeTab === 'bus'" class="tab__item">
+      <section>
+        <header>
+          <img src="assets/svgs/bus.svg" alt="">
+          <h3>From Dublin</h3>
+        </header>
+        <article>
+          <p>Bus Éireann has cancelled the No. 7 route, the other options are <a target="_blank" href="http://jjkavanagh.ie/timetable-detail-page?RouteNo=717&IsWeb=1&IsCollegeRoute=0&Direction=1&RGrp=Main%20Routes%20^%20Airport%20Routes"><strong>JJ Kavanaghs</strong></a> that goes at 6.50, 11.05, 13.05, 15.05, 17.05, 18.10, 19.05, 21.05 and 23.35 from Heuston Station or <a target="_blank" href="http://www.dublincoach.ie/timetables-fares/M9-waterford-kilkenny-dublin-bus.php"><strong>Dublin Coach</strong></a> that leaves from Burgh Quay every 2 hours from 6am.</p>
+        </article>
+      </section>
+
+      <section>
+        <header>
+          <img src="assets/svgs/bus.svg" alt="">
+          <h3>From Cork</h3>
+        </header>
+        <article>
+          <p>Get the Dublin Coach (600) towards Dublin from St Patricks Quay across from the bus station, every two hours from 5am.</p>
+        </article>
+      </section>
+
+       <section>
+        <header>
+          <img src="assets/svgs/bus.svg" alt="">
+          <h3>From Galway</h3>
+        </header>
+        <article>
+          <p>Take the <a target="_blank" href="http://www.citylink.ie/uploads/images/timetables43/timetables26/timetable_800x850pixel.jpg">Citylink</a> (760) or <a target="_blank" href="http://www.gobus.ie/timetable.php?map=28">GoBus</a> (720) to Dublin, then follow the directions from Dublin to Kilkenny. When transferring in Dublin Eden Quay is across the river from Burgh Quay when transfering with GoBus, with Citylink its easier to just transfer at the Airport. This will take around 5-6 hours, the train is 4 hours.</p>
+        </article>
+      </section>
+
+    </div>
+
+    <div *ngIf="activeTab === 'train'" class="tab__item">
+      <section>
+        <header>
+          <img src="assets/svgs/bus.svg" alt="">
+          <h3>Trains</h3>
+        </header>
+        <article>
+          <p>Kilkenny city is on the Waterford-Dublin train route, however this service has limited trains on Sundays, so plan in advance which train to get using the below link. Langtons is a 5 minute stroll from Kilkenny station, and can be reached by turning right from the train station onto the Dublin Road, walking to the end of the street and turning left onto John Street Upper. Walk 200m and Langtons is on the left hand side.<br> <a href="http://www.irishrail.ie/media/04_dublin-waterford_25052015.pdf"></a></p>
+        </article>
+      </section>
+
+
+    </div>
+  </div>
+</section>
+<img class="borders" src="assets/svgs/right-lines.svg" alt="">

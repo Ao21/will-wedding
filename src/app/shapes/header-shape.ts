@@ -2,74 +2,72 @@ import { Shape, Tween, Timeline, addShape, CustomShape, easing } from 'mo-js';
 import { StrokeDashArray } from './../core/animations/stroke-dasharray';
 
 export class Header {
-    timeline: Timeline;
-    StrokeDashArray: StrokeDashArray;
-    el: any;
-    shapeArr = [];
+	timeline: Timeline;
+	StrokeDashArray: StrokeDashArray;
+	el: any;
+	shapeArr = [];
 
-    constructor(el) {
-        this.initShapes();
-        this.el = el;
+	constructor(el) {
+		this.initShapes();
+		this.el = el;
 
-        this.timeline = new Timeline();
-        // this.shapeArr.forEach((e, i) => {
-        // 	this.createShape(e.name, e.stroke, e.path, i, e.round);
-        // });
+		this.timeline = new Timeline();
+		// this.shapeArr.forEach((e, i) => {
+		// 	this.createShape(e.name, e.stroke, e.path, i, e.round);
+		// });
 
-        this.createShape('TopLines', 0,  window.innerHeight + 280);
-        this.createShape('BottomLines', 0,  window.innerHeight + 280);
-        this.createShape('DottedBottomLines', 0,  window.innerHeight + 280);
-        this.createShape('DottedTopLines', 0,  window.innerHeight + 280);
-        // this.createShape('Ampersand', 0,  window.innerHeight + 280);
+		this.createShape('TopLines', 0, window.innerHeight + 280);
+		this.createShape('BottomLines', 0, window.innerHeight + 280);
+		this.createShape('DottedBottomLines', 0, window.innerHeight + 280);
+		this.createShape('DottedTopLines', 0, window.innerHeight + 280);
+		// this.createShape('Ampersand', 0,  window.innerHeight + 280);
 		this.createShape('Circles', 0, window.innerHeight + 280);
-		this.createShape('WillPatrick', 0,  window.innerHeight + 280);
-        // this.createAmpersand();       
-        this.timeline.play();
-    }
+		this.createShape('WillPatrick', 0, window.innerHeight + 280);
+		// this.createAmpersand();
+		this.timeline.play();
+	}
 
-    initShapes() {
-        addShape('TopLines', TopLines);
-        addShape('BottomLines', BottomLines);
-        addShape('DottedBottomLines', DottedBottomLines);
-        addShape('DottedTopLines', DottedTopLines);
-        // addShape('Ampersand', Ampersand);
+	initShapes() {
+		addShape('TopLines', TopLines);
+		addShape('BottomLines', BottomLines);
+		addShape('DottedBottomLines', DottedBottomLines);
+		addShape('DottedTopLines', DottedTopLines);
+		// addShape('Ampersand', Ampersand);
 		addShape('Circles', Circles);
 		addShape('WillPatrick', WillPatrick);
-    }
+	}
 
 	createShape(shape, x, y) {
-		let mql = window.matchMedia('(max-width:499px)').matches;
+		const mql = window.matchMedia('(max-width:499px)').matches;
 		let scale = 1;
 		if (mql) {
 			scale = 0.8;
 		}
-        let s = new Shape({
-            shape: shape,
-            fill: 'white',
-            stroke: 'none',
+		const s = new Shape({
+			shape: shape,
+			fill: '#333232',
+			stroke: 'none',
 			fillOpacity: 0,
 			parent: this.el,
-            top: window.innerHeight / 2,
-            left: '50%',
-            easing: easing.cubic.inout,
-            duration: 8800 - 1000,
-            width: 412,
-            height: 203,
-            y: 0,
-            x: x,
-            scale: scale,
-            isShowStart: true,
-        }).then({
-            duration: 600,
-            easing: easing.expo.inout,
-			fillOpacity: { 0: 1 },
-        });
-        this.timeline.add(s);
-        return s; 
-    }    
-
+			top: window.innerHeight / 2,
+			left: '50%',
+			easing: easing.cubic.inout,
+			duration: 8800 - 1000,
+			width: 412,
+			height: 206,
+			y: 0,
+			x: x,
+			scale: scale,
+			isShowStart: true
+		}).then({
+			duration: 600,
+			easing: easing.expo.inout,
+			fillOpacity: { 0: 1 }
+		});
+		this.timeline.add(s);
+		return s;
+	}
 }
-
 
 class WillPatrick extends CustomShape {
 	getShape() {
@@ -117,50 +115,48 @@ class WillPatrick extends CustomShape {
 		c0.5,0.2,0.9,0.5,1.3,0.9c0.4,0.4,0.7,0.9,1,1.4c0.2,0.5,0.3,1.1,0.3,1.7v21.3h-2.1v-17h-4.5v17h-2.1V108.9z M292.1,106.8v-2.2
 		c0-0.6-0.2-1.2-0.6-1.6c-0.4-0.5-1-0.7-1.7-0.7c-0.6,0-1.1,0.2-1.5,0.6s-0.7,1-0.7,1.7v2.2H292.1z"/>
 	<path class="st1" d="M300.4,100l3.8,8.5l3.8-8.5l4.8,25.9l-2.1,0l-3.5-18.9l-2.9,6.5l-3-6.6l-3.5,19l-2.1,0L300.4,100z"/>
-</g>`
+</g>`;
 	}
 }
 
-
 class TopLines extends CustomShape {
-    getShape() {
-        return `<g transform="translate(-155, -51.5) scale(1, 1)"><path class="st0" d="M183.4,82.4H10.7c-0.5,0-0.9-0.4-0.9-0.9s0.4-0.9,0.9-0.9c0,0,0,0,0,0h172.7c11.5,0,20.8-9.3,20.8-20.8
+	getShape() {
+		return `<g transform="translate(-155, -51.5) scale(1, 1)"><path class="st0" d="M183.4,82.4H10.7c-0.5,0-0.9-0.4-0.9-0.9s0.4-0.9,0.9-0.9c0,0,0,0,0,0h172.7c11.5,0,20.8-9.3,20.8-20.8
 				c0-0.5,0.4-0.9,0.9-0.9s0.9,0.4,0.9,0.9C206,72.3,195.8,82.4,183.4,82.4z"/>
 			<path class="st0" d="M226.8,82.4h172.7c0.5,0,0.9-0.4,0.9-0.9s-0.4-0.9-0.9-0.9c0,0,0,0,0,0H226.8c-11.5,0-20.7-9.3-20.8-20.8
 				c0-0.5-0.4-0.9-0.9-0.9s-0.9,0.4-0.9,0.9C204.2,72.3,214.3,82.4,226.8,82.4z"/>
 			<path class="st0" d="M387,89.9H23.1c-1,0-1.8-0.8-1.8-1.8s0.8-1.8,1.8-1.8c0,0,0,0,0,0H387c1,0,1.8,0.8,1.8,1.8
 				C388.8,89.1,388,89.9,387,89.9z"/></g>`;
-    }
+	}
 }
 
 class BottomLines extends CustomShape {
-    getShape() {
-        return `<g transform="translate(-155, -51.5) scale(1, 1)"><path class="st0" d="M183.4,142.6H10.7c-0.5,0-0.9,0.4-0.9,0.9s0.4,0.9,0.9,0.9h172.7c11.5,0,20.8,9.3,20.8,20.8
+	getShape() {
+		return `<g transform="translate(-155, -51.5) scale(1, 1)"><path class="st0" d="M183.4,142.6H10.7c-0.5,0-0.9,0.4-0.9,0.9s0.4,0.9,0.9,0.9h172.7c11.5,0,20.8,9.3,20.8,20.8
 				c0,0.5,0.4,0.9,0.9,0.9s0.9-0.4,0.9-0.9C206,152.7,195.8,142.6,183.4,142.6z"/>
 			<path class="st0" d="M226.8,142.6h172.7c0.5,0,0.9,0.4,0.9,0.9s-0.4,0.9-0.9,0.9H226.8c-11.5,0-20.7,9.3-20.8,20.8
 				c0,0.5-0.4,0.9-0.9,0.9s-0.9-0.4-0.9-0.9C204.2,152.7,214.3,142.6,226.8,142.6z"/>
 			<path class="st0" d="M387,138.7H23.1c-1,0-1.8-0.8-1.8-1.8c0-1,0.8-1.8,1.8-1.8H387c1,0,1.8,0.8,1.8,1.8
 				C388.8,137.9,388,138.7,387,138.7z"/></g>`;
-    }
+	}
 }
 
 class Ampersand extends CustomShape {
-    getShape() {
-        return `<path id="ampersand" transform="translate(-155, -51.5)" class="st0" d="M212.6,34.5c-1.2-1-2.8-1.4-4.3-1.2c-0.2-2.1-0.5-4.3-0.8-6.7l3.7-2.5
+	getShape() {
+		return `<path id="ampersand" transform="translate(-155, -51.5)" class="st0" d="M212.6,34.5c-1.2-1-2.8-1.4-4.3-1.2c-0.2-2.1-0.5-4.3-0.8-6.7l3.7-2.5
 			c8.4-5.6,5.7-19.6,3.8-23.4c-9.3,5.4-9.9,16.1-9.5,22.5c-2.7,2-5.6,3.9-8.4,6.2c-4.8,3.9-4.3,10.6-3,13.9
 			c2.6,5.2,8.5,7.9,14.1,6.5c0.2,2.1,0.1,4.2-0.4,6.2c-1.4,3.9-6.1,3.7-7,2.4c2.1,0.3,3.7-2,3.5-3.8c-0.2-2-2-3.5-4-3.3
 			c-0.1,0-0.1,0-0.2,0c-1.9,0.4-3.4,2.3-3.1,5s4.5,4.9,9,3.3c3.8-1.3,3.9-6.6,3.6-10.5l0.2-0.1C218.3,45.8,216.3,37.3,212.6,34.5z
 			 M214.6,3.6c3.2,8.9-1.3,13.8-7.7,18.6C206.1,15.1,209,8,214.6,3.6z M203.9,48.5c-3.6-0.2-6.8-2.7-7.7-8.9
 			c-0.6-4.1,3.9-7.9,9.8-12v0.2c0.1,0.9,0.4,3,0.7,5.8c-1.8,0.5-3.4,1.8-4.3,3.4c-0.9,2.2-0.9,5.5,2.3,8.8c-2.1-3.1-1-6.9,1.2-8.1
 			c0.4-0.2,0.8-0.3,1.2-0.4c0.4,3.4,0.8,7.2,0.9,10.5C206.8,48.3,205.3,48.5,203.9,48.5z M212.8,42.7c-0.1,2-1.4,3.8-3.2,4.5l0,0
-			c-0.2-2-0.4-5.4-0.9-9.8C211.2,37.9,212.9,40.2,212.8,42.7L212.8,42.7z"/>`
-    }
-
+			c-0.2-2-0.4-5.4-0.9-9.8C211.2,37.9,212.9,40.2,212.8,42.7L212.8,42.7z"/>`;
+	}
 }
 
 class DottedTopLines extends CustomShape {
-    getShape() {
-        return `<g id="dotted-top" transform="translate(-155, -51.5) scale(1, 1)">
+	getShape() {
+		return `<g id="dotted-top" transform="translate(-155, -51.5) scale(1, 1)">
 			<path class="st0" d="M170.6,74.3h-1.8c-0.5,0-0.9-0.4-0.9-0.9c0-0.5,0.4-0.9,0.9-0.9h1.8c0.5,0,0.9,0.4,0.9,0.9
 				S171.1,74.3,170.6,74.3C170.6,74.3,170.6,74.3,170.6,74.3L170.6,74.3z M163.3,74.3h-1.8c-0.5,0-0.9-0.4-0.9-0.9
 				c0-0.5,0.4-0.9,0.9-0.9h1.8c0.5,0,0.9,0.4,0.9,0.9C164.2,73.9,163.8,74.3,163.3,74.3z M156.1,74.3h-1.8c-0.5,0-0.9-0.4-0.9-0.9
@@ -230,13 +226,13 @@ class DottedTopLines extends CustomShape {
 				L406,73.4z M234,74.3c-0.7-0.1-1.3-0.1-1.9-0.2c-0.5-0.1-0.8-0.6-0.7-1.1c0.1-0.4,0.5-0.7,1-0.7c0.6,0.1,1.1,0.2,1.7,0.2
 				c0.5,0,0.9,0.4,0.9,1C235,73.9,234.6,74.3,234,74.3L234,74.3z M226.7,72.4c-0.6-0.3-1.1-0.5-1.7-0.8c-0.4-0.3-0.6-0.8-0.3-1.3
 				c0.2-0.4,0.7-0.5,1.2-0.3c0.5,0.3,1,0.5,1.6,0.8c0.5,0.2,0.7,0.7,0.5,1.2S227.2,72.6,226.7,72.4z"/>
-		</g>`
-    }
+		</g>`;
+	}
 }
 
 class DottedBottomLines extends CustomShape {
-    getShape() {
-        return `<g id="dotted-bottom" transform="translate(-155, -51.5) scale(1, 1)">
+	getShape() {
+		return `<g id="dotted-bottom" transform="translate(-155, -51.5) scale(1, 1)">
 			<path class="st0" d="M171.5,151.6c0,0.5-0.4,0.9-0.9,0.9l0,0h-1.8c-0.5,0-0.9-0.4-0.9-0.9s0.4-0.9,0.9-0.9h1.8
 				C171.1,150.7,171.5,151.1,171.5,151.6z M164.2,151.6c0,0.5-0.4,0.9-0.9,0.9l0,0h-1.8c-0.5,0-0.9-0.4-0.9-0.9s0.4-0.9,0.9-0.9h1.8
 				C163.8,150.6,164.2,151,164.2,151.6C164.2,151.6,164.2,151.6,164.2,151.6L164.2,151.6z M157,151.6c0,0.5-0.4,0.9-0.9,0.9l0,0
@@ -300,13 +296,13 @@ class DottedBottomLines extends CustomShape {
 				c-0.6,0-1.2,0.1-1.7,0.2c-0.5,0.1-0.9-0.3-1-0.8c-0.1-0.5,0.2-0.9,0.7-1C232.8,150.9,233.4,150.8,234.1,150.7L234.1,150.7z
 				 M227.1,152.6c0.5,0,0.9,0.4,0.9,0.9c0,0.4-0.2,0.7-0.5,0.8c-0.5,0.2-1.1,0.5-1.6,0.8c-0.5,0.2-1,0-1.2-0.4
 				c-0.2-0.4-0.1-0.9,0.3-1.2c0.6-0.3,1.1-0.6,1.7-0.9c0.1,0,0.2-0.1,0.3-0.1H227.1z"/>
-		</g>`
-    }
+		</g>`;
+	}
 }
 
 class Circles extends CustomShape {
-    getShape() {
-        return `<g id="circles" transform="translate(-155, -51.5) scale(1, 1)">
+	getShape() {
+		return `<g id="circles" transform="translate(-155, -51.5) scale(1, 1)">
 			<path class="st0" d="M206,170.8c0,9.1-7.4,16.4-16.4,16.4s-16.4-7.4-16.4-16.4s7.4-16.4,16.4-16.4l0,0
 				C198.6,154.4,206,161.7,206,170.8z M204.2,170.8c0-8.1-6.5-14.6-14.6-14.6s-14.6,6.5-14.6,14.6s6.5,14.6,14.6,14.6
 				C197.6,185.3,204.1,178.8,204.2,170.8L204.2,170.8z"/>
@@ -322,5 +318,5 @@ class Circles extends CustomShape {
 			<path class="st0" d="M219.4,162.8c2.3,0.1,4,2,3.9,4.3c-0.1,2.1-1.8,3.8-3.9,3.9c-2.3,0-8.4-4.1-8.4-4.1S217.1,162.8,219.4,162.8
 				z"/>
 		</g>`;
-    }
+	}
 }

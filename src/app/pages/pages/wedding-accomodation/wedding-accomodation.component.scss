@@ -1,0 +1,87 @@
+@import "../../../../styles/utils/utils";
+
+:host {
+	flex: 1 1 auto;
+	position: relative;
+	background-color: $color-background-light;
+	width: 100%;
+	padding: 0 35px;
+	float: left;
+
+	display: flex;
+
+	& > img.borders {
+		position: absolute;
+		height: 100%;
+		&:last-of-type {
+			right: 35px;
+		}
+	}
+
+	& > section {
+		flex: 1 1 auto;
+		padding: $spacing-quad 65px 0;
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: center;
+		margin-bottom: $spacing-quad;
+
+		& > h2 {
+			flex: 0 0 auto;
+			color: $color-dark;
+			text-align: center;
+			max-width: 70%;
+			font-family: 'mrs-eaves';
+			max-width: 60%;
+			margin-bottom: $spacing-double;
+		}
+	}
+
+	.spacer {
+		flex: 0 0 auto;
+		width: 100px;
+		height: 5px;
+		background-color: $color-dark;
+		margin-bottom: $spacing-double;
+	}
+
+	.accomodation {
+		&__container {
+			display: flex;
+			flex-flow: column nowrap;
+			width: 80%;
+		}
+
+		&__details {
+			margin-left: $spacing-double;
+			width: 50%;
+		}
+
+		&__item {
+			margin-bottom: $spacing-one-half;
+			border-bottom: 1px solid $border-dark;
+
+			&:last-child {
+				border-bottom: none;
+			}
+			header {
+				display: flex;
+				img {
+					margin-right: $spacing-whole;
+				}
+				h5 {
+					font-family: 'jubilat';
+					font-weight: 400;
+				}
+			}
+
+		}
+
+		&__phone,
+		&__link {
+			@include type-scale(-1);
+			color: $color-gold;
+			margin-bottom: $spacing-half;
+		}
+	}
+}

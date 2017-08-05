@@ -1,70 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "./styles/base/typography";
+
+$color-black: #333232;
+$color-white: #fbfbfb;
 * {
     box-sizing: border-box;
 }
 
+
 html,
 body {
-    position: absolute;
     margin: 0;
     padding: 0;
-    height: 100vh;
-    overflow: hidden;
     min-width: 100%;
-    background-color: black;
+    background-color: #fbfbfb;
 }
 
-.form {
-    position: absolute;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
-    opacity: 0;
-    font-family: 'jubilat';
-    color: white;
-    width: 300px;
-    z-index: 999999;
-    padding: 0 35px;
-    text-align: center;
-    input[type="email"],
-    input[type="text"] {
-        background-color: transparent;
-        border: none;
-        border-bottom: 2px solid rgba(255,255,255,0.2);
-        margin-bottom: 12px;
-        color: white;
-        text-align: left;
-        width: 100%;
-        float: left;
-        width: 100%;
-        
-        font-size: 16px;
-        font-weight: 100;
-        font-family: 'jubilat';
-        &:focus {
-            outline: 0;
-            border-bottom: 2px solid rgba(255,255,255,1);
-        }
-    }
-    input[type="submit"]{
-        background: none;
-        color: white;
-        border: none;
-        margin-top: 6px;
-        font-family: 'jubilat';
-        font-size: 20px;
-    }
-
-
-}
-
-
-@media (max-width:499px) {
-    .form {
-        input[type="email"],
-        input[type="text"] {
-            margin-bottom: 6px;
-        }
-    }
+a {
+    color: $color-gold;
+    text-decoration: underline;
 }

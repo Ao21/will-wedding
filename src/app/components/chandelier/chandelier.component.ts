@@ -14,13 +14,24 @@ export class ChandelierComponent implements OnInit {
 	mask: Mask;
 	topHat: TopHat;
 
-	constructor(private el: ElementRef) { }
+	element: HTMLElement;
+
+	constructor(private el: ElementRef) {
+		this.element = el.nativeElement;
+	}
 
 	ngOnInit() {
-		this.header = new Header(this.el.nativeElement.querySelector('.header_container'));
-		this.chandelier = new Chandelier(this.el.nativeElement.querySelector('.shape_container'));
+		this.header = new Header(
+			this.el.nativeElement.querySelector('.header_container')
+		);
+		this.chandelier = new Chandelier(
+			this.el.nativeElement.querySelector('.shape_container')
+		);
+
+		setTimeout(() => {
+			this.element.classList.add('is-done');
+		}, 10000);
 		// this.mask = new Mask(this.el.nativeElement.querySelector('.mask_container'));
 		// this.topHat = new TopHat(this.el.nativeElement.querySelector('.mask_container'));
 	}
-
 }

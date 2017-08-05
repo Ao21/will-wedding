@@ -1,10 +1,11 @@
 import { Shape, Tween, Timeline, addShape, CustomShape, easing } from 'mo-js';
 import { StrokeDashArray } from './../core/animations/stroke-dasharray';
 
-var extremeInElasticOutEasing = easing.path('M0,100 C50,100 50,100 50,50 C50,-15.815625 53.7148438,-19.1218754 60.4981394,0 C62.2625924,4.97393188 66.4286578,6.07928485 68.3303467,0 C71.3633751,-6.23011049 74.5489919,-1.10166123 75.7012545,0 C79.6946191,3.60945678 84.2063904,-0.104182975 84.2063905,0 C87.5409362,-2.25875668 90.4589294,-0.0327241098 93.4950242,0 C97.3271182,0.20445262 100,-0.104182352 100,0');
+const extremeInElasticOutEasing = easing.path(
+	'M0,100 C50,100 50,100 50,50 C50,-15.815625 53.7148438,-19.1218754 60.4981394,0 C62.2625924,4.97393188 66.4286578,6.07928485 68.3303467,0 C71.3633751,-6.23011049 74.5489919,-1.10166123 75.7012545,0 C79.6946191,3.60945678 84.2063904,-0.104182975 84.2063905,0 C87.5409362,-2.25875668 90.4589294,-0.0327241098 93.4950242,0 C97.3271182,0.20445262 100,-0.104182352 100,0'
+);
 
 export class Chandelier {
-
 	timeline: Timeline;
 	StrokeDashArray: StrokeDashArray;
 	el: any;
@@ -24,31 +25,36 @@ export class Chandelier {
 	}
 
 	createShape(name, stroke, path, index, round) {
-		let angle = ['rand(-50,-70)'];
-		let repeatCount = 0;
-		let rPositions = [[-100, 100, 50], [-75, 75, 25], [-50, 50, 20], [-30, 30, 20], [-10, 10, 10], [0, 0]];
+		const angle = ['rand(-50,-70)'];
+		const repeatCount = 0;
+		const rPositions = [
+			[-100, 100, 50],
+			[-75, 75, 25],
+			[-50, 50, 20],
+			[-30, 30, 20],
+			[-10, 10, 10],
+			[0, 0]
+		];
 
-		
-
-		let mql = window.matchMedia('(max-width:499px)').matches
+		const mql = window.matchMedia('(max-width:499px)').matches;
 		let height = window.innerHeight;
 
 		let top = 180;
 		if (mql) {
-			top= 100;
+			top = 100;
 			height = window.innerHeight - 50;
 		}
 
-		let lPos = -100;
-		let flip1 = false;
-		let s = new Shape({
+		const lPos = -100;
+		const flip1 = false;
+		const s = new Shape({
 			shape: name,
 			className: 'chandelier-shape',
 			isShowEnd: true,
 			isShowStart: true,
 			parent: this.el,
 			strokeLinecap: round ? 'round' : null,
-			fill: 'white',
+			fill: '#333232',
 			strokeWidth: stroke,
 			scale: 0.7,
 			top: 0,
@@ -61,29 +67,34 @@ export class Chandelier {
 			isYoyo: true,
 			duration: 0,
 			width: 286,
-			height: 264,
-		}).then({
-			// delay: 7000,
-			duration: 4000,
-			easing: easing.ease.inout,
-			angle: { '-40': 50 },
-			y: { to: top }
-		}).then({
-			duration: 1200,
-			easing: easing.cubic.inout,
-			angle: { to: -30 },
-		}).then({
-			duration: 1200,
-			easing: easing.cubic.inout,
-			angle: { to: 20 },
-		}).then({
-			duration: 1200,
-			easing: easing.cubic.inout,
-			angle: { to: -10 },
-		}).then({
-			duration: 1200,
-			angle: { to: 0 },
-		});
+			height: 264
+		})
+			.then({
+				// delay: 7000,
+				duration: 4000,
+				easing: easing.ease.inout,
+				angle: { '-40': 50 },
+				y: { to: top }
+			})
+			.then({
+				duration: 1200,
+				easing: easing.cubic.inout,
+				angle: { to: -30 }
+			})
+			.then({
+				duration: 1200,
+				easing: easing.cubic.inout,
+				angle: { to: 20 }
+			})
+			.then({
+				duration: 1200,
+				easing: easing.cubic.inout,
+				angle: { to: -10 }
+			})
+			.then({
+				duration: 1200,
+				angle: { to: 0 }
+			});
 		this.timeline.add(s);
 	}
 
@@ -91,28 +102,26 @@ export class Chandelier {
 		addShape('ChandlierShape', ChandlierShape);
 		addShape('Ampersand', Ampersand);
 
-		this.shapeArr.push(
-			{
-				name: 'ChandlierShape',
-				stroke: 1, round: true,
-				path: null
-			},
-		)
+		this.shapeArr.push({
+			name: 'ChandlierShape',
+			stroke: 1,
+			round: true,
+			path: null
+		});
 	}
 
 	createAmpersand() {
-
-		let mql = window.matchMedia('(max-width:499px)').matches
-		let height = window.innerHeight;
+		const mql = window.matchMedia('(max-width:499px)').matches;
+		const height = window.innerHeight;
 
 		let top = 185;
 		if (mql) {
 			top = 105;
 		}
 
-		let s = new Shape({
+		const s = new Shape({
 			shape: 'Ampersand',
-			fill: 'white',
+			fill: '#333232',
 			stroke: 'none',
 			parent: this.el,
 			fillOpacity: { 0: 1 },
@@ -126,25 +135,29 @@ export class Chandelier {
 			y: window.innerHeight + 280,
 			x: -16,
 			scale: 1,
-			isShowStart: true,
-		}).then({
-			duration: 4000,
-			easing: easing.ease.inout,
-			angle: { '-40': 50 },
-			y: { to: top }
-		}).then({
-			duration: 1200,
-			easing: easing.cubic.inout,
-			angle: { to: -30 },
-		}).then({
-			duration: 1200,
-			easing: easing.cubic.inout,
-			angle: { to: 20 },
-		}).then({
-			duration: 1200,
-			easing: easing.cubic.inout,
-			angle: { to: -10 },
+			isShowStart: true
 		})
+			.then({
+				duration: 4000,
+				easing: easing.ease.inout,
+				angle: { '-40': 50 },
+				y: { to: top }
+			})
+			.then({
+				duration: 1200,
+				easing: easing.cubic.inout,
+				angle: { to: -30 }
+			})
+			.then({
+				duration: 1200,
+				easing: easing.cubic.inout,
+				angle: { to: 20 }
+			})
+			.then({
+				duration: 1200,
+				easing: easing.cubic.inout,
+				angle: { to: -10 }
+			})
 			.then({
 				easing: easing.cubic.inout,
 				duration: 500,
@@ -152,7 +165,7 @@ export class Chandelier {
 				top: window.innerHeight / 2,
 				x: { to: 0 },
 				y: { to: -5 }
-			})
+			});
 		this.timeline.add(s);
 	}
 }
@@ -166,11 +179,9 @@ class Ampersand extends CustomShape {
 			 M214.6,3.6c3.2,8.9-1.3,13.8-7.7,18.6C206.1,15.1,209,8,214.6,3.6z M203.9,48.5c-3.6-0.2-6.8-2.7-7.7-8.9
 			c-0.6-4.1,3.9-7.9,9.8-12v0.2c0.1,0.9,0.4,3,0.7,5.8c-1.8,0.5-3.4,1.8-4.3,3.4c-0.9,2.2-0.9,5.5,2.3,8.8c-2.1-3.1-1-6.9,1.2-8.1
 			c0.4-0.2,0.8-0.3,1.2-0.4c0.4,3.4,0.8,7.2,0.9,10.5C206.8,48.3,205.3,48.5,203.9,48.5z M212.8,42.7c-0.1,2-1.4,3.8-3.2,4.5l0,0
-			c-0.2-2-0.4-5.4-0.9-9.8C211.2,37.9,212.9,40.2,212.8,42.7L212.8,42.7z"/>`
+			c-0.2-2-0.4-5.4-0.9-9.8C211.2,37.9,212.9,40.2,212.8,42.7L212.8,42.7z"/>`;
 	}
-
 }
-
 
 class ChandlierShape extends CustomShape {
 	getShape() {
@@ -1496,6 +1507,6 @@ class ChandlierShape extends CustomShape {
 	c-0.4,0-0.7,0.3-0.7,0.7c0,0.4,0.3,0.7,0.7,0.7c0.4,0,0.7-0.3,0.7-0.7c0-0.2-0.1-0.4-0.3-0.6c0,0,0.1,0,0.1,0c0.4,0,0.7-0.3,0.7-0.7
 	c0-0.4-0.3-0.7-0.7-0.7c-0.4,0-0.7,0.3-0.7,0.7C145.4,105.4,145.5,105.6,145.7,105.7z M144.1,107.8c0,0.4,0.3,0.7,0.7,0.7
 	s0.7-0.3,0.7-0.7c0-0.4-0.3-0.7-0.7-0.7S144.1,107.4,144.1,107.8z M144.3,108.4c-0.4,0-0.7,0.3-0.7,0.7c0,0.4,0.3,0.7,0.7,0.7
-	s0.7-0.3,0.7-0.7C145,108.7,144.7,108.4,144.3,108.4z"/>`
+	s0.7-0.3,0.7-0.7C145,108.7,144.7,108.4,144.3,108.4z"/>`;
 	}
 }
