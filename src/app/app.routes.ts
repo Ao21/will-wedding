@@ -8,18 +8,18 @@ import { RvspPlusoneComponent } from './pages/pages/rvsp-plusone/rvsp-plusone.co
 
 const APP_ROUTES: Routes = [
 	{
-		path: 'rsvp',
+		path: 'invite',
 		component: RsvpDefaultComponent,
 	},
 	{
-		path: 'invite',
+		path: 'rsvp',
 		component: RsvpAftersComponent,
 	},
 	{
 		path: 'invitation',
 		component: RvspPlusoneComponent,
 	},
-	{ path: '**', component: RsvpDefaultComponent }
+	{ path: '**', component: RsvpAftersComponent }
 ];
 
 // export const routing: any = RouterModule.forRoot(APP_ROUTES);

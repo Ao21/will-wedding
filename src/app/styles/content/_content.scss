@@ -3,7 +3,7 @@
 .content {
 	&__splash {
 		width: 100%;
-		height: 35vh;
+		height: 50vh;
 		position: relative;
 		float: left;
 		width: 100%;
@@ -12,11 +12,31 @@
 		display: flex;
 		justify-content: center;
 		img {
+			margin-top: 15vh;
 			height: 75vh;
+		}
+		nav {
+			display: flex;
+			flex-flow: row nowrap;
+			a {
+				font-family: 'mrs-eaves';
+				@include type-scale(1);
+				text-decoration: none;
+				color: $color-dark;
+				margin-right: 2rem;
+				&:after {
+					content: '-';
+					position: absolute;
+					margin-left: 1rem;
+					transform: translateX(-0.1rem);
+				}
+				&:last-child:after {
+					content: '';
+				}
+			}
 		}
 	}
 	&__info {
-		
 	}
 
 	&__accomodation {
