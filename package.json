@@ -24,6 +24,7 @@
     "core-js": "^2.4.1",
     "mo-js": "^0.288.1",
     "rxjs": "^5.4.2",
+    "zenscroll": "^4.0.0",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {
