@@ -2,27 +2,29 @@
   <c-header-left></c-header-left>
   <c-header-right></c-header-right>
 </section>
-<div class="top__foreground">
+<div [class.fixed]="!isVisible"  class="top__foreground">
   <c-chandelier></c-chandelier>
 
 </div>
 <!-- <div class="bottom__foreground">
   <c-ticket></c-ticket>
 </div> -->
-<section class="content">
+<section [class.fixed]="!isVisible" class="content">
   <div id="" class="content__splash">
-    <nav class="header_links">
+    <nav *ngIf="isVisible" class="header_links">
       <a (click)="goToSection('information')">Information</a>
+      <a (click)="goToSection('faq')">Faq</a>
       <a (click)="goToSection('accomodation')">Accomodation</a>
       <a (click)="goToSection('travel')">Travel</a>
-      <a (click)="goToSection('faq')">Faq</a>
       <a (click)="goToSection('rsvp')">Rsvp</a>
     </nav>
     <img src="assets/svgs/willandpatrick.svg" alt="">
   </div>
-  <wedding-info id="information"></wedding-info>
-  <wedding-accomodation id="accomodation"></wedding-accomodation>
-  <wedding-travel id="travel"></wedding-travel>
-  <wedding-faq id="faq"></wedding-faq>
-  <router-outlet></router-outlet>
+  <ng-template [ngIf]="isVisible">
+    <wedding-info id="information"></wedding-info>
+    <wedding-faq id="faq"></wedding-faq>
+    <wedding-accomodation id="accomodation"></wedding-accomodation>
+    <wedding-travel id="travel"></wedding-travel>
+    <router-outlet></router-outlet>
+  </ng-template>
 </section>

@@ -6,7 +6,6 @@
 	background-color: $color-blue;
 	width: 100%;
 	padding: 0 35px;
-	height: 50vh;
 	float: left;
 
 	display: flex;
@@ -44,6 +43,14 @@
 		height: 5px;
 		background-color: $color-dark;
 		margin-bottom: $spacing-double;
+	}
+
+	article {
+		width: 80%;
+
+		h5 {
+			margin-bottom: $spacing-whole;
+		}
 	}
 
 }

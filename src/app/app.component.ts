@@ -10,13 +10,18 @@ import * as zenscroll from 'zenscroll';
 })
 export class AppComponent {
 	title = 'app works!';
+	isVisible = false;
 
 	zen = zenscroll.createScroller(document.body, 750, 0);
 	constructor(mojo: MojsInit) {
 		mojo.init();
+
+		setTimeout(() => {
+			this.isVisible = true;
+		}, 11000);
 	}
 	goToSection($event) {
 		const el = document.getElementById($event);
-		this.zen.to(el);
+		this.zen.intoView(el);
 	}
 }
