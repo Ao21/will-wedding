@@ -24,9 +24,13 @@ export class AppComponent {
 			this.zen = zenscroll.createScroller(document.body, 750, 0);
 		}
 
+		// 11000
 		setTimeout(() => {
 			this.isVisible = true;
-		}, 11000);
+			setTimeout(() => {
+				this.zen.toY(100);
+			}, 350);
+		}, 10500);
 	}
 	goToSection($event) {
 		const el = document.getElementById($event);

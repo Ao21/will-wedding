@@ -2,16 +2,39 @@
 
 :host {
 	flex: 1 1 auto;
-	position:relative;
-	background-color: $color-background-dark;
+	position: relative;
+	background-color: $color-dark-blue;
 	width: 100vw;
-	padding: 0 35px;
 	overflow: hidden;
 	float: left;
 
 	display: flex;
 
-	img {
+	@include mq(small) {
+		padding: $spacing-half;
+
+		& > img.borders {
+			display: none;
+		}
+
+		& > section {
+			padding: $spacing-quad 0 0;
+		}
+	}
+
+	@include mq(medium) {
+		padding: 0 35px;
+
+		& > img.borders {
+			display: block;
+		}
+
+		& > section {
+			padding: $spacing-quad 65px 0;
+		}
+	}
+
+	img.borders {
 		position: absolute;
 		height: 100%;
 		&:last-of-type {
@@ -40,6 +63,7 @@
 
 	h2 {
 		font-family: 'mrs-eaves';
+		color: $color-light;
 		max-width: 60%;
 		margin-bottom: $spacing-double;
 	}

@@ -5,15 +5,21 @@
 	position: relative;
 	background-color: $color-background-light;
 	width: 100vw;
-	padding: 0 35px;
 	overflow: hidden;
 	height: 100%;
 	float: left;
-	min-height: 100vh;
 	display: flex;
 	padding: 0 95px;
 
 	justify-content: center;
+
+	@include mq(small){
+		padding: 0;
+	}
+
+	@include mq(medium){
+		padding: 0 35px;
+	}
 
 	& > section {
 		flex: 1 1 auto;

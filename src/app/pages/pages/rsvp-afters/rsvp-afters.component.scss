@@ -1,19 +1,40 @@
 @import "../../../../styles/utils/utils";
 @import "../../../../styles/base/inputs";
 :host {
+
+	
 	flex: 1 1 auto;
 	position: relative;
-	background-color: $color-background-light;
+	background-color: $color-light;
 	width: 100vw;
 	padding: 0 35px;
 	overflow: hidden;
 	height: 100%;
 	float: left;
-	min-height: 100vh;
 	display: flex;
 	padding: 0 95px;
 
 	justify-content: center;
+
+	@include mq(small){
+		padding: 0;
+
+		.mc {
+			&-form {
+				width: 100%;
+			}
+		}
+	}
+
+	@include mq(medium){
+		padding: 0 35px;
+
+		.mc {
+			&-form {
+				width: 600px;
+			}
+		}
+	}
 
 	& > section {
 		flex: 1 1 auto;
@@ -54,7 +75,6 @@
 		
 		&-form {
 			flex: 1 1 auto;
-			width: 100%;
 		}
 		&-field-group {
 			display: flex;
