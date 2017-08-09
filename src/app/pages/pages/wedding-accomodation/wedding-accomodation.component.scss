@@ -27,7 +27,13 @@
 				width: 100%;
 				margin-left: 0;
 			}
+			&__item {
+				header {
+					margin-bottom: $spacing-whole;
+				}
+			}
 		}
+
 	}
 
 	@include mq(medium) {
@@ -45,6 +51,11 @@
 			&__details {
 				margin-left: $spacing-double;
 				width: 50%;
+			}
+			&__item {
+				header {
+					margin-bottom: 0;
+				}
 			}
 		}
 	}
