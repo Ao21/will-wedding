@@ -18,7 +18,7 @@ export class AppComponent {
 	constructor(mojo: MojsInit) {
 		mojo.init();
 
-		if (IEUTILS.detectIE()) {
+		if (IEUTILS.detectIE() || IEUTILS.detectFirefox()) {
 			this.zen = zenscroll.createScroller(document.querySelector('html'), 750, 0);
 		} else {
 			this.zen = zenscroll.createScroller(document.body, 750, 0);

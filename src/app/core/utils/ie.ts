@@ -25,4 +25,8 @@ export class IEUTILS {
 		return false;
 	}
 
+	public static detectFirefox() {
+		return navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+	}
+
 }
