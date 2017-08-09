@@ -3,6 +3,8 @@ import { MojsInit } from './shapes/mo-js.init';
 
 import * as zenscroll from 'zenscroll';
 
+import { IEUTILS } from './core/utils/ie';
+
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
@@ -12,9 +14,15 @@ export class AppComponent {
 	title = 'app works!';
 	isVisible = false;
 
-	zen = zenscroll.createScroller(document.body, 750, 0);
+	zen;
 	constructor(mojo: MojsInit) {
 		mojo.init();
+
+		if (IEUTILS.detectIE()) {
+			this.zen = zenscroll.createScroller(document.querySelector('html'), 750, 0);
+		} else {
+			this.zen = zenscroll.createScroller(document.body, 750, 0);
+		}
 
 		setTimeout(() => {
 			this.isVisible = true;
