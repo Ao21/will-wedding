@@ -24,6 +24,9 @@ export class RsvpAftersComponent implements OnInit {
 
 	@HostBinding('attr.id') id = 'rsvp';
 
+	isComplete = false;
+	isLoading = false;
+
 	constructor(private http: Jsonp) {}
 
 	ngOnInit() {}
@@ -38,10 +41,10 @@ export class RsvpAftersComponent implements OnInit {
 			this.mailChimpUrl +
 			this.jsonToQueryString(formData) +
 			'&c=JSONP_CALLBACK';
-
+		this.isLoading = true;
 		this.http.get(url).subscribe(next => {
 			const res = next.json();
-			console.log(res);
+			this.isComplete = true;
 		});
 	}
 

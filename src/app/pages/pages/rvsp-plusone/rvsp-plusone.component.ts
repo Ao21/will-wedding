@@ -37,6 +37,8 @@ export class RvspPlusoneComponent implements OnInit {
 	@HostBinding('attr.id') id = 'rsvp';
 	private mailChimpUrl = 'http://wilandpatrickwedding.us14.list-manage.com/subscribe/post-json';
 	model = new RSVPModel();
+	isComplete = false;
+	isLoading = false;
 
 	constructor(private http: Jsonp) {}
 
@@ -53,9 +55,10 @@ export class RvspPlusoneComponent implements OnInit {
 			this.jsonToQueryString(formData) +
 			'&c=JSONP_CALLBACK';
 
+		this.isLoading = true;
 		this.http.get(url).subscribe(next => {
 			const res = next.json();
-			console.log(res);
+			this.isComplete = true;
 		});
 	}
 
