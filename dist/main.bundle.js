@@ -1407,7 +1407,7 @@ WeddingFaqComponent = __decorate([
 /***/ "../../../../../src/app/pages/pages/wedding-info/wedding-info.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<img src=\"assets/svgs/left-lines.svg\" alt=\"\">\n<section>\n  <h2>Please join Patrick and William on the 24th September as we celebrate our wedding </h2>\n  <div class=\"spacer\"></div>\n  <p>Saturday, 24th September</p>\n  <p>The ceremony will be held at 4pm in the Set Theatre of Langtons House hotel, we will gather at Bridie’s Bar next door from 3pm onwards. Dinner will be at 6pm followed by music from The Seducers and DJ till late.</p>\n  <p>Sunday, 25th September</p>\n  <p>The Following day, afternoon tea, scones, and maybe a bit of an ould singsong for anyone sticking around!</p>\n</section>\n<img src=\"assets/svgs/right-lines.svg\" alt=\"\">"
+module.exports = "<img src=\"assets/svgs/left-lines.svg\" alt=\"\">\n<section>\n  <h2>Please join Patrick and William on the 24th September as we celebrate our wedding </h2>\n  <div class=\"spacer\"></div>\n  <p>Sunday, 24th September</p>\n  <p>The ceremony will be held at 4pm in the Set Theatre of Langtons House hotel, we will gather at Bridie’s Bar next door from 3pm onwards. Dinner will be at 6pm followed by music from The Seducers and DJ till late.</p>\n  <p>Monday, 25th September</p>\n  <p>The Following day, afternoon tea, scones, and maybe a bit of an ould singsong for anyone sticking around!</p>\n</section>\n<img src=\"assets/svgs/right-lines.svg\" alt=\"\">"
 
 /***/ }),
 
