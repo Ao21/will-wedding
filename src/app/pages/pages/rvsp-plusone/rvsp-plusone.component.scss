@@ -1,10 +1,13 @@
 @import "../../../../styles/utils/utils";
 @import "../../../../styles/base/inputs";
 :host {
+
+	
 	flex: 1 1 auto;
 	position: relative;
-	background-color: $color-background-light;
+	background-color: $color-light;
 	width: 100vw;
+	padding: 0 35px;
 	overflow: hidden;
 	height: 100%;
 	float: left;
@@ -15,10 +18,22 @@
 
 	@include mq(small){
 		padding: 0;
+
+		.mc {
+			&-form {
+				width: 100%;
+			}
+		}
 	}
 
 	@include mq(medium){
 		padding: 0 35px;
+
+		.mc {
+			&-form {
+				width: 600px;
+			}
+		}
 	}
 
 	& > section {
@@ -57,9 +72,9 @@
 	}
 
 	.mc {
+		
 		&-form {
 			flex: 1 1 auto;
-			width: 100%;
 		}
 		&-field-group {
 			display: flex;
@@ -68,6 +83,10 @@
 
 			@include o-input();
 
+		}
+
+		&-embedded-subscribe {
+			width: 100%;
 		}
 
 		&-address-group {
