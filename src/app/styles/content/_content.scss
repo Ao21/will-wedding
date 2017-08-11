@@ -28,7 +28,8 @@
 			left: 50%;
 			transform: translateX(-50%);
 		}
-		.header {
+		.header h1, .header p {
+			text-align: center;
 			font-family: 'mrs-eaves';
 		}
 		

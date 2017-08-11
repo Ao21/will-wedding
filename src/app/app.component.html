@@ -11,9 +11,13 @@
 </div> -->
 <section [class.fixed]="!isVisible" class="content">
   <div id="" class="content__splash">
-    <h1 *ngIf="isVisible" class="header">
-      You're Invited
-    </h1>
+    <div class="header">
+        <h1 *ngIf="isVisible" class="">
+            You're Invited
+          </h1>
+          <p *ngIf="isVisible">Please RSVP before the 1st of September</p>
+    </div>
+    
     <!--  -->
     <img src="assets/svgs/willandpatrick.svg" alt="">
   </div>
