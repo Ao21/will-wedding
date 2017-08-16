@@ -19,7 +19,7 @@ const APP_ROUTES: Routes = [
 		path: 'invitation',
 		component: RvspPlusoneComponent,
 	},
-	{ path: '**', component: RsvpAftersComponent }
+	{ path: '**', component: RsvpDefaultComponent }
 ];
 
 // export const routing: any = RouterModule.forRoot(APP_ROUTES);
