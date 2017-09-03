@@ -204,7 +204,7 @@ var APP_ROUTES = [
         path: 'invitation',
         component: __WEBPACK_IMPORTED_MODULE_4__pages_pages_rvsp_plusone_rvsp_plusone_component__["a" /* RvspPlusoneComponent */],
     },
-    { path: '**', component: __WEBPACK_IMPORTED_MODULE_2__pages_pages_rsvp_default_rsvp_default_component__["a" /* RsvpDefaultComponent */] }
+    { path: '**', component: __WEBPACK_IMPORTED_MODULE_3__pages_pages_rsvp_afters_rsvp_afters_component__["a" /* RsvpAftersComponent */] }
 ];
 // export const routing: any = RouterModule.forRoot(APP_ROUTES);
 var AppRoutingModule = (function () {
